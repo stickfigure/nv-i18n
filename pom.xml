@@ -2,13 +2,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.voodoodyne</groupId>
+    <groupId>com.synalogik</groupId>
     <artifactId>nv-i18n-safe</artifactId>
-    <version>1.30-SNAPSHOT</version>
+    <version>1.29</version>
     <packaging>bundle</packaging>
     <name>Neo Visionaries Internationalization Package (safe)</name>
     <description>Package to support internationalization</description>
-    <url>https://github.com/stickfigure/nv-i18n-safe</url>
+    <url>https://github.com/Synalogik/nv-i18n-safe</url>
 
     <licenses>
         <license>
@@ -24,9 +24,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:stickfigure/nv-i18n-safe.git</connection>
-        <developerConnection>scm:git:git@github.com:stickfigure/nv-i18n-safe.git</developerConnection>
-        <url>git@github.com:stickfigure/nv-i18n-safe.git</url>
+        <connection>scm:git:git@github.com:Synalogik/nv-i18n-safe.git</connection>
+        <developerConnection>scm:git:git@github.com:Synalogik/nv-i18n-safe.git</developerConnection>
+        <url>git@github.com:Synalogik/nv-i18n-safe.git</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -35,14 +35,10 @@
     </properties>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>darutk</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-
         <repository>
-            <id>darutk</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>github</id>
+            <name>GitHub Synalogik Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/Synalogik/com.synalogik.nv-i18n-safe</url>
         </repository>
     </distributionManagement>
 
@@ -148,42 +144,10 @@
                 </configuration>
             </plugin>
 
-            <!--
-            This hack is required to publish to maven central using a modern JDK:
-            https://issues.sonatype.org/browse/OSSRH-66257
-            -->
-
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.8</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>darutk</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>3.0.0-M4</version>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
             <plugin>
